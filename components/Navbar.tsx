@@ -112,6 +112,12 @@ const Navbar: FC = () => {
         About
       </button>
       <button className="bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-500 hover:border-transparent rounded">
+        Leaderboard
+      </button>
+      <button className="bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-500 hover:border-transparent rounded">
+        Merch
+      </button>
+      <button className="bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-500 hover:border-transparent rounded">
         OpenSea
       </button>
       <button className="bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-500 hover:border-transparent rounded">
