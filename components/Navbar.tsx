@@ -83,7 +83,7 @@ const Navbar: FC = () => {
   }, [filterableCollection])
 
   return (
-    <nav className="relative col-span-full flex items-center justify-between gap-2 px-6 py-4 md:gap-3 md:py-6 md:px-16">
+    <nav className="top-0 sticky z-50 col-span-full flex items-center justify-between gap-2 px-6 md:gap-3 md:pt-12 md:py-6 md:px-16">
       <NavbarLogo className="z-10" />
       <div className="flex h-full w-full items-center justify-center">
         <div className="absolute left-0 z-[1] flex w-full justify-center">

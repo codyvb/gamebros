@@ -37,7 +37,7 @@ const AttributeSelector: FC<Props> = ({
   return (
     <div className="border-b-[1px] border-gray-300 dark:border-neutral-600">
       <div className="relative m-4">
-        <FiSearch
+        {/* <FiSearch
           className={`absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-[#4b5563] ${
             query !== '' ? 'text-[#9CA3AF]' : ''
           }`}
@@ -51,7 +51,7 @@ const AttributeSelector: FC<Props> = ({
           placeholder="Search"
           debounceTimeout={300}
           onChange={(e) => setQuery(e.target.value)}
-        />
+        /> */}
         {typeof query === 'string' && query !== '' && (
           <button onClick={() => setQuery('')}>
             <FiXCircle className="absolute top-1/2 right-3 z-20 h-4 w-4 -translate-y-1/2 text-[#9CA3AF]" />

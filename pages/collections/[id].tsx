@@ -13,7 +13,6 @@ import useTokens from 'hooks/useTokens'
 import useCollectionAttributes from 'hooks/useCollectionAttributes'
 import { setToast } from 'components/token/setToast'
 import { paths, setParams } from '@reservoir0x/client-sdk'
-import Hero from 'components/Hero'
 import { formatNumber } from 'lib/numbers'
 import Sidebar from 'components/Sidebar'
 import AttributesFlex from 'components/AttributesFlex'
@@ -162,9 +161,8 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
           {description}
           {image}
         </Head>
-        <Hero collectionId={id} fallback={fallback} />
+        {/* <Hero collectionId={id} fallback={fallback} /> */}
         <div className="col-span-full grid grid-cols-4 gap-x-4 md:grid-cols-8 lg:grid-cols-12 3xl:grid-cols-16 4xl:grid-cols-21">
-          <hr className="col-span-full border-gray-300 dark:border-neutral-600" />
           <Sidebar attributes={attributes} setTokensSize={tokens.setSize} />
           <div className="col-span-full mx-6 mt-4 sm:col-end-[-1] md:col-start-4">
             <div className="mb-10 hidden items-center justify-between md:flex">
@@ -176,13 +174,13 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
                         {formatNumber(stats?.data?.stats?.tokenCount)} items
                       </div>
 
-                      <div className="h-9 w-px bg-gray-300 dark:bg-neutral-600"></div>
-                      <div>
+                      {/* <div className="h-9 w-px bg-gray-300 dark:bg-neutral-600"></div> */}
+                      {/* <div>
                         <FormatEth
                           amount={stats?.data?.stats?.market?.floorAsk?.price}
                         />{' '}
                         floor price
-                      </div>
+                      </div> */}
                     </>
                   )}
               </div>

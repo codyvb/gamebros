@@ -112,7 +112,7 @@ const TokensGrid: FC<Props> = ({
                     </div>
                   )}
 
-                  <p
+                  {/* <p
                     className="reservoir-subtitle mb-3 overflow-hidden truncate px-4 pt-4 dark:text-white lg:pt-3"
                     title={token?.name || token?.tokenId}
                   >
@@ -138,7 +138,7 @@ const TokensGrid: FC<Props> = ({
                         <FormatWEth amount={token?.topBidValue} logoWidth={7} />
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </a>
               </Link>
             )
