@@ -49,7 +49,7 @@ const ImagesGrid: FC<Props> = ({ sample_images, value }) => {
         </div>
       ) : (
         <div className="aspect-w-1 aspect-h-1 relative">
-          <img src="https://via.placeholder.com/250" width="250" height="250" />
+          <img src="https://via.placeholder.com/250" width="250" height="250" alt="description of image" />
         </div>
       )}
     </>

@@ -111,7 +111,7 @@ const Media: FC<{
   if (extension === 'wav' || extension === 'mp3') {
     return (
       <div>
-        <img className="mb-4 w-[533px] rounded-2xl" src={tokenImage} />
+        <img className="mb-4 w-[533px] rounded-2xl" src={tokenImage} alt="" />
         <audio className="mb-4 w-full" controls src={animation_url}>
           Your browser does not support the
           <code>audio</code> element.
