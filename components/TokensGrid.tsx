@@ -47,7 +47,7 @@ const TokensGrid: FC<Props> = ({
         1024: 2,
         768: 2,
         640: 2,
-        500: 1,
+        500: 2,
       }}
       className="masonry-grid"
       columnClassName="masonry-grid_column"
