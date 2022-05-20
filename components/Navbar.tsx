@@ -83,7 +83,7 @@ const Navbar: FC = () => {
   }, [filterableCollection])
 
   return (
-    <nav className="top-0 sticky z-50 col-span-full flex items-center justify-between py-6 gap-2 px-6 md:gap-3 md:pt-12 md:py-6 md:px-16 sm:py-6">
+    <nav className="top-0 sticky bg-gradient-to-b from-neutral-900 to-background-opacity-0 z-50 col-span-full flex items-center justify-between py-6 gap-2 px-6 md:gap-3 md:pt-12 md:py-6 md:px-16 sm:py-6">
       <NavbarLogo className="z-10" />
       <div className="flex h-full w-full items-center justify-center">
         <div className="absolute left-0 z-[1] flex w-full justify-center">
@@ -106,7 +106,20 @@ const Navbar: FC = () => {
       </div>
       <HamburgerMenu externalLinks={externalLinks} />
       <div className="z-10 ml-auto hidden shrink-0 md:block">
-        <ConnectWallet />
+        {/* <ConnectWallet /> */}
+        
+      <button className="bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-500 hover:border-transparent rounded">
+        About
+      </button>
+      <button className="bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-500 hover:border-transparent rounded">
+        OpenSea
+      </button>
+      <button className="bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-500 hover:border-transparent rounded">
+        Discord
+      </button>
+      <button className="bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-500 hover:border-transparent rounded">
+        Twitter
+      </button>
       </div>
     </nav>
   )

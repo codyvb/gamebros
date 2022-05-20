@@ -34,7 +34,7 @@ const NavbarLogo: FC<Props> = ({ variant, className }) => {
         <img
           src={desktopLogo}
           alt={logoAlt}
-          className={`h-9 w-auto md:block ${
+          className={`h-14 w-auto md:block ${
             !variant ? 'hidden md:block' : ''
           } ${mobileVariant ? 'hidden' : ''} ${desktopVariant ? 'block' : ''}`}
         />
