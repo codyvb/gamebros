@@ -325,7 +325,7 @@ export const getStaticProps: GetStaticProps<{
 
   let tokensQuery: paths['/tokens/v4']['get']['parameters']['query'] = {
     collection: id,
-    sortBy: 'floorAskPrice',
+    sortBy: 'topBidValue',
     limit: 20,
   }
 
