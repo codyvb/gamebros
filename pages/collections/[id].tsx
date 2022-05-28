@@ -26,6 +26,8 @@ import TokensGrid from 'components/TokensGrid'
 import Head from 'next/head'
 import FormatEth from 'components/FormatEth'
 import useAttributes from 'hooks/useAttributes'
+import Link from "next/link";
+
 
 // Environment variables
 // For more information about these variables
@@ -161,11 +163,18 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
           {description}
           {image}
         </Head>
+        <section className="relative left-0 w-full h-screen col-span-full flex bg-[url('/background.png')] bg-center bg-cover">
+      </section>
+      <Link href="/collections/0x1f63ef5e95b3b2541f2b148bf95bfc34201b77cd">
+      <div className='absolute cursor-pointer top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96'>
+      <img src="/gb_head.gif" alt="description of image"></img>
+      </div>
+      </Link>
         {/* <Hero collectionId={id} fallback={fallback} /> */}
         <div className="col-span-full grid grid-cols-4 gap-x-4 md:grid-cols-8 lg:grid-cols-12 3xl:grid-cols-16 4xl:grid-cols-21">
-          <Sidebar attributes={attributes} setTokensSize={tokens.setSize} />
-          <div className="col-span-full mx-6 mt-4 sm:col-end-[-1] md:col-start-4">
-            <div className="mb-10 hidden items-center justify-between md:flex">
+          {/* <Sidebar attributes={attributes} setTokensSize={tokens.setSize} /> */}
+          <div className="col-span-full mt-4 sm:col-end-[-1]">
+            <div className="mb-10 hidden items-center justify-between">
               <div className="flex items-center gap-6">
                 {!!stats?.data?.stats?.tokenCount &&
                   stats?.data?.stats?.tokenCount > 0 && (

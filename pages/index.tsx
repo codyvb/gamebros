@@ -25,7 +25,7 @@ const RESERVOIR_API_KEY = process.env.RESERVOIR_API_KEY
 const META_TITLE = process.env.NEXT_PUBLIC_META_TITLE
 const META_DESCRIPTION = process.env.NEXT_PUBLIC_META_DESCRIPTION
 const TAGLINE = process.env.NEXT_PUBLIC_TAGLINE
-const COLLECTION = null
+const COLLECTION = process.env.NEXT_PUBLIC_COLLECTION
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
