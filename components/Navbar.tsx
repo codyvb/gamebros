@@ -83,48 +83,33 @@ const Navbar: FC = () => {
   }, [filterableCollection])
 
   return (
-    <nav className="top-0 sticky bg-gradient-to-b from-black to-background-opacity-0 z-50 col-span-full flex items-center justify-between py-6 gap-2 px-6 md:gap-3 md:pt-12 md:py-6 md:px-16 sm:py-6">
-      <NavbarLogo className="z-10" />
-      <div className="flex h-full w-full items-center justify-center">
-        <div className="absolute left-0 z-[1] flex w-full justify-center">
-          {filterComponent && filterComponent}
-          {hasExternalLinks && (
-            <div className="ml-12 hidden items-center gap-11 lg:flex">
-              {externalLinks.map(({ name, url }) => (
-                <a
-                  key={url}
-                  href={url}
-                  rel="noopener noferrer"
-                  className="text-dark reservoir-h6 hover:text-[#1F2937] dark:text-white"
-                >
-                  {name}
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-      <HamburgerMenu externalLinks={externalLinks} />
-      <div className="z-10 ml-auto hidden shrink-0 md:block">
-        {/* <ConnectWallet /> */}
-        
-      <button className="bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-500 hover:border-transparent rounded">
-        About
-      </button>
-      <button className="bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-500 hover:border-transparent rounded">
-        Leaderboard
-      </button>
-      <button className="bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-500 hover:border-transparent rounded">
-        Merch
-      </button>
-      <button className="bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-500 hover:border-transparent rounded">
+    <nav className="top-0 sticky bg-gradient-to-b from-black to-background-opacity-0 z-50 col-span-full flex justify-between py-6 gap-2 px-6 md:gap-3 md:pt-12 md:py-6 md:px-16 sm:py-6">
+      <div className="hidden md:flex w-1/3 justify-left">
+      <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
         OpenSea
       </button>
-      <button className="bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-500 hover:border-transparent rounded">
+      <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
         Discord
       </button>
-      <button className="bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-500 hover:border-transparent rounded">
+      <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
         Twitter
+      </button>
+      </div>
+      <div className='flex w-1/3 justify-center'>
+      <NavbarLogo className="z-10" />
+      </div>
+      <HamburgerMenu externalLinks={externalLinks} />
+      <div className="z-10 ml-auto hidden md:flex w-1/3 justify-end">
+        {/* <ConnectWallet /> */}
+        
+      <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
+        About
+      </button>
+      <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
+        Leaderboard
+      </button>
+      <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
+        Merch
       </button>
       </div>
     </nav>

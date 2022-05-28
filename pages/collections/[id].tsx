@@ -165,11 +165,12 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
         </Head>
         <section className="relative left-0 w-full h-screen col-span-full flex bg-[url('/background.png')] bg-center bg-cover">
       </section>
-      <Link href="/collections/0x1f63ef5e95b3b2541f2b148bf95bfc34201b77cd">
       <div className='absolute cursor-pointer top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96'>
       <img src="/gb_head.gif" alt="description of image"></img>
+      <div className='flex justify-center mt-4 text-lg font-press-start'>
+        Select Your Character
       </div>
-      </Link>
+      </div>
         {/* <Hero collectionId={id} fallback={fallback} /> */}
         <div className="col-span-full grid grid-cols-4 gap-x-4 md:grid-cols-8 lg:grid-cols-12 3xl:grid-cols-16 4xl:grid-cols-21">
           {/* <Sidebar attributes={attributes} setTokensSize={tokens.setSize} /> */}
