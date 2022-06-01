@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { useRouter } from 'next/router'
 import LoadingCard from './LoadingCard'
 import { SWRInfiniteResponse } from 'swr/infinite/dist/infinite'
 import Link from 'next/link'
@@ -8,6 +9,7 @@ import FormatEth from './FormatEth'
 import Masonry from 'react-masonry-css'
 import { paths } from '@reservoir0x/client-sdk/dist/types/api'
 import FormatWEth from 'components/FormatWEth'
+import {ENSName} from 'react-ens-name'
 
 const SOURCE_ID = process.env.NEXT_PUBLIC_SOURCE_ID
 const NAVBAR_LOGO = process.env.NEXT_PUBLIC_NAVBAR_LOGO
@@ -36,6 +38,10 @@ const TokensGrid: FC<Props> = ({
   const isEmpty = mappedTokens.length === 0
   const didReactEnd = isEmpty || (data && mappedTokens.length < tokenCount)
 
+  const router = useRouter()
+
+
+
   return (
     <Masonry
       key="tokensGridMasonry"
@@ -60,14 +66,19 @@ const TokensGrid: FC<Props> = ({
             if (!token) return null
 
             return (
+              
               <Link
                 key={`${token?.collection?.name}${idx}`}
-                href={`/${token?.contract}/${token?.tokenId}`}
+                href={`/collections/${token?.contract}/?token=${token?.tokenId}`} scroll={false}
               >
-                <a className="group relative grid transform-gpu self-start overflow-hidden border-8 border-[#000000] transition ease-in hover:border-[#6d6d6d] hover:ease-out">
+                <a className="group relative grid self-start overflow-hidden border-8 border-[#000000] transition ease-in hover:border-[#6d6d6d] hover:ease-out">
                   {token?.source && (
-                    <img
-                      className="absolute top-4 left-4 h-8 w-8"
+                    
+                  <div className='absolute top-0 left-0 h-24 w-full bg-gradient-to-b from-black to-background-opacity-0 col-span-full'>
+                                      <div className='absolute top-4 left-4 h-8 w-8 font-press-start'>Available! 
+
+                    {/* <img
+                      className='absolute float-right'
                       src={
                         SOURCE_ID &&
                         token?.source &&
@@ -76,7 +87,9 @@ const TokensGrid: FC<Props> = ({
                           : `https://api.reservoir.tools/redirect/logo/v1?source=${token?.source}`
                       }
                       alt=""
-                    />
+                    />  */}
+                    </div>
+                    </div>
                   )}
                   {token?.image ? (
                     <img
@@ -111,14 +124,18 @@ const TokensGrid: FC<Props> = ({
                       />
                     </div>
                   )}
-                  {/* {token?.owner} */}
+                  <div className='absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-black to-background-opacity-0 col-span-full invisible group-hover:visible'>
+                  </div>
+                  <div className='absolute text-xs invisible group-hover:visible bottom-5 left-3 h-2 w-8 font-press-start'>
+                  <ENSName address={token?.owner}></ENSName>
                   {/* <p
                     className="reservoir-subtitle mb-3 overflow-hidden truncate px-4 pt-4 dark:text-white lg:pt-3"
                     title={token?.name || token?.tokenId}
                   >
                     {token?.name || `#${token?.tokenId}`}
-                  </p>
-                  <div className="flex items-center justify-between px-4 pb-4 lg:pb-3">
+                  </p> */}
+                  </div>
+                  {/* <div className="flex items-center justify-between px-4 pb-4 lg:pb-3">
                     <div>
                       <div className="reservoir-subtitle text-xs text-gray-400">
                         Price

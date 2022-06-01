@@ -27,6 +27,10 @@ import Head from 'next/head'
 import FormatEth from 'components/FormatEth'
 import useAttributes from 'hooks/useAttributes'
 import Link from "next/link";
+import { Modal } from 'components/modal/ModalBasic'
+import { useEffect } from 'react'
+import TokenMedia from 'components/token/TokenMedia'
+import useDetails from 'hooks/useDetails'
 
 
 // Environment variables
@@ -154,6 +158,20 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
       <meta property="og:image" content={bannerImage} />
     </>
   )
+  const { query } = useRouter()
+  const [openModal, setOpenModal] = useState(false)
+
+  useEffect(() => {
+    const token = query?.token?.toString()
+
+    setOpenModal(Boolean(token))
+  }, [query])
+
+  const details = useDetails({
+    tokens: [
+      `${'0x1f63ef5e95b3b2541f2b148bf95bfc34201b77cd'}:${router.query?.token?.toString()}`,
+    ],
+  })
 
   return (
     <Layout navbar={{}}>
@@ -171,6 +189,17 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
         Select Your Character
       </div>
       </div>
+
+      {openModal && (
+        <Modal
+          onClose={() => {
+            router.push(`/collections/0x1f63ef5e95b3b2541f2b148bf95bfc34201b77cd`, undefined, { shallow: true });
+          }}
+        >
+          <TokenMedia details={details} />
+
+        </Modal>
+      )}
         {/* <Hero collectionId={id} fallback={fallback} /> */}
         <div className="col-span-full grid grid-cols-4 gap-x-4 md:grid-cols-8 lg:grid-cols-12 3xl:grid-cols-16 4xl:grid-cols-21">
           {/* <Sidebar attributes={attributes} setTokensSize={tokens.setSize} /> */}
