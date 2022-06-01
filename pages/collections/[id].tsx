@@ -72,6 +72,22 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
 
   const attributes = useAttributes(id)
 
+
+  const { query } = useRouter()
+  const [openModal, setOpenModal] = useState(false)
+
+  useEffect(() => {
+    const token = query?.token?.toString()
+
+    setOpenModal(Boolean(token))
+  }, [query])
+
+  const details = useDetails({
+    tokens: [
+      `${'0x1f63ef5e95b3b2541f2b148bf95bfc34201b77cd'}:${router.query?.token?.toString()}`,
+    ],
+  })
+
   if (!CHAIN_ID) return null
 
   if (tokens.error) {
@@ -158,20 +174,7 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
       <meta property="og:image" content={bannerImage} />
     </>
   )
-  const { query } = useRouter()
-  const [openModal, setOpenModal] = useState(false)
 
-  useEffect(() => {
-    const token = query?.token?.toString()
-
-    setOpenModal(Boolean(token))
-  }, [query])
-
-  const details = useDetails({
-    tokens: [
-      `${'0x1f63ef5e95b3b2541f2b148bf95bfc34201b77cd'}:${router.query?.token?.toString()}`,
-    ],
-  })
 
   return (
     <Layout navbar={{}}>
