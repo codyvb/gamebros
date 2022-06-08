@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { toggleOffItem, toggleOnItem } from 'lib/router'
 import { useRouter } from 'next/router'
 import LoadingCard from './LoadingCard'
 import { SWRInfiniteResponse } from 'swr/infinite/dist/infinite'
@@ -10,6 +11,7 @@ import Masonry from 'react-masonry-css'
 import { paths } from '@reservoir0x/client-sdk/dist/types/api'
 import FormatWEth from 'components/FormatWEth'
 import {ENSName} from 'react-ens-name'
+
 
 const SOURCE_ID = process.env.NEXT_PUBLIC_SOURCE_ID
 const NAVBAR_LOGO = process.env.NEXT_PUBLIC_NAVBAR_LOGO
@@ -67,11 +69,12 @@ const TokensGrid: FC<Props> = ({
 
             return (
               
-              <Link
+              
+
+              <li className='list-none'
                 key={`${token?.collection?.name}${idx}`}
-                href={`/collections/${token?.contract}/?token=${token?.tokenId}`} scroll={false}
               >
-                <a className="group relative grid self-start overflow-hidden border-8 border-[#000000] transition ease-in hover:border-[#6d6d6d] hover:ease-out">
+                <a onClick={() => toggleOnItem(router, 'token', `${token?.tokenId}`)} className="group relative grid cursor-pointer self-start overflow-hidden border-8 border-[#000000] transition ease-in hover:border-[#6d6d6d] hover:ease-out">
                   {token?.source && (
                     
                   <div className='absolute top-0 left-0 h-24 w-full bg-gradient-to-b from-black to-background-opacity-0 col-span-full'>
@@ -157,7 +160,7 @@ const TokensGrid: FC<Props> = ({
                     </div>
                   </div> */}
                 </a>
-              </Link>
+              </li>
             )
           })}
       {didReactEnd &&

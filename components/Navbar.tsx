@@ -102,14 +102,12 @@ const Navbar: FC = () => {
       <div className="z-10 ml-auto hidden md:flex w-1/3 justify-end">
         {/* <ConnectWallet /> */}
         
-      <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
-        About
-      </button>
+
       <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
         Leaderboard
       </button>
       <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
-        Merch
+        Drops
       </button>
       </div>
     </nav>
