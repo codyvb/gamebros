@@ -184,13 +184,21 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
           {description}
           {image}
         </Head>
-        <section className="relative left-0 w-full h-screen col-span-full flex bg-[url('/background.png')] bg-center bg-cover">
-      </section>
-      <div className='absolute cursor-pointer top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96'>
-      <img src="/gb_head.gif" alt="description of image"></img>
-      <div className='flex justify-center mt-4 text-lg font-press-start'>
-        Select Your Character
+        <div className="relative left-0 w-full h-screen col-span-full flex bg-gradient-to-b from-black via-black to-gray-900 bg-center bg-cover">
       </div>
+        <div className="absolute left-0 w-full h-screen col-span-full flex bg-[url('/background.png')] bg-center bg-cover">
+      </div>
+      <div className='absolute cursor-pointer mt-14 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96'>
+      <img src="/gb_head.webp" alt="description of image"></img>
+      <div className='flex justify-center mt-4 text-xl font-press-start'>
+        360 GameBros
+      </div>
+      <div className='flex justify-center mt-4 text-lg font-press-start'>
+        {stats?.data?.stats?.tokenCount} / 360
+      </div>
+      <div className="w-full mt-4 bg-gray-200 dark:bg-gray-700 border-2">
+      <div className="bg-white h-2.5 w-[52%]" ></div>
+</div>
       </div>
 
       {openModal && (
