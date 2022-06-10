@@ -86,6 +86,7 @@ const ModalCard: FC<Props> = ({
         {data && (
           <div className="mb-5 flex items-center gap-4">
             <img
+              alt="GameBro"
               src={optimizeImage(
                 data?.collection?.image || data?.token?.image,
                 50

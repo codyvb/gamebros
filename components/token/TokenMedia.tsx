@@ -72,6 +72,7 @@ const TokenMedia: FC<Props> = ({ details }) => {
       ></Script>
       {tokenOpenSea?.extension === null ? (
         <img
+          alt="GameBro"
           className="w-full rounded-2xl"
           src={optimizeImage(token?.token?.image, 533)}
         />

@@ -30,6 +30,8 @@ import Link from "next/link";
 import { Modal } from 'components/modal/ModalBasic'
 import { useEffect } from 'react'
 import TokenMedia from 'components/token/TokenMedia'
+import TokenInfo from 'components/token/TokenInfo'
+import Owner from 'components/token/Owner'
 import useDetails from 'hooks/useDetails'
 
 
@@ -184,7 +186,7 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
           {description}
           {image}
         </Head>
-        <div className="relative left-0 w-full h-screen col-span-full flex bg-gradient-to-b from-black via-black to-gray-900 bg-center bg-cover">
+        <div className="relative left-0 w-screen h-screen col-span-full flex bg-gradient-to-b from-black via-black to-gray-900 bg-center">
       </div>
         <div className="absolute left-0 w-full h-screen col-span-full flex bg-[url('/background.png')] bg-center bg-cover">
       </div>
@@ -208,6 +210,10 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
           }}
         >
           <TokenMedia details={details} />
+          <div className='ml-10'>
+          <Owner details={details} />
+
+          </div>
 
         </Modal>
       )}

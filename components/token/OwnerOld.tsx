@@ -2,8 +2,6 @@ import EthAccount from 'components/EthAccount'
 import useDetails from 'hooks/useDetails'
 import Link from 'next/link'
 import { FC } from 'react'
-import {ENSName} from 'react-ens-name'
-
 
 type Props = {
   details: ReturnType<typeof useDetails>
@@ -19,8 +17,8 @@ const Owner: FC<Props> = ({ details }) => {
 
   return (
     <div className="col-span-full md:col-span-4 lg:col-span-5 lg:col-start-2">
-      <article className="col-span-full border border-gray-300 bg-white p-6 dark:border-neutral-600 dark:bg-black">
-        <div className=" mb-6 overflow-hidden dark:text-white font-press-start">
+      <article className="col-span-full rounded-2xl border border-gray-300 bg-white p-6 dark:border-neutral-600 dark:bg-black">
+        <div className="reservoir-h3 mb-6 overflow-hidden font-headings dark:text-white">
           {token?.token?.name || `#${token?.token?.tokenId}`}
         </div>
 
@@ -37,18 +35,16 @@ const Owner: FC<Props> = ({ details }) => {
           </div>
         )} */}
 
-        <div className="mb-2 dark:text-white font-press-start">
-          Held by 
+        <div className="reservoir-h6 mb-2 font-headings dark:text-white">
+          Owner
+        </div>
         {owner && (
           <Link href={`/address/${owner}`}>
             <a className="inline-block">
-            <ENSName address={token?.token?.owner}></ENSName>
-
+              <EthAccount address={owner} side="left" />
             </a>
           </Link>
         )}
-        </div>
-
       </article>
     </div>
   )
