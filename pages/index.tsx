@@ -51,7 +51,7 @@ const Home: NextPage<Props> = ({ fallback }) => {
 
   useEffect(() => {
     if (COLLECTION) {
-      router.push(`/collections/${COLLECTION}`)
+      router.push(`/collections/${COLLECTION}?token=188`)
     }
   }, [COLLECTION])
 

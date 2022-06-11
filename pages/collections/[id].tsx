@@ -22,6 +22,7 @@ import ViewMenu from 'components/ViewMenu'
 import SortMenu from 'components/SortMenu'
 import { FiRefreshCcw } from 'react-icons/fi'
 import ExploreTokens from 'components/ExploreTokens'
+import TokensRow from 'components/TokensRow'
 import TokensGrid from 'components/TokensGrid'
 import Head from 'next/head'
 import FormatEth from 'components/FormatEth'
@@ -29,7 +30,7 @@ import useAttributes from 'hooks/useAttributes'
 import Link from "next/link";
 import { Modal } from 'components/modal/ModalBasic'
 import { useEffect } from 'react'
-import TokenMedia from 'components/token/TokenMedia'
+import TokenAvatar from 'components/token/TokenAvatar'
 import TokenInfo from 'components/token/TokenInfo'
 import Owner from 'components/token/Owner'
 import useDetails from 'hooks/useDetails'
@@ -186,24 +187,9 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
           {description}
           {image}
         </Head>
-        <div className="relative left-0 w-screen h-screen col-span-full flex bg-gradient-to-b from-black via-black to-gray-900 bg-center">
-      </div>
-        <div className="absolute left-0 w-full h-screen col-span-full flex bg-[url('/background.png')] bg-center bg-cover">
-      </div>
-      <div className='absolute cursor-pointer mt-14 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96'>
-      <img src="/gb_head.webp" alt="description of image"></img>
-      <div className='flex justify-center mt-4 text-xl font-press-start'>
-        360 GameBros
-      </div>
-      <div className='flex justify-center mt-4 text-lg font-press-start'>
-        {stats?.data?.stats?.tokenCount} / 360
-      </div>
-      <div className="w-full mt-4 bg-gray-200 dark:bg-gray-700 border-2">
-      <div className="bg-white h-2.5 w-[52%]" ></div>
-</div>
-      </div>
 
-      {openModal && (
+
+      {/* {openModal && (
         <Modal
           onClose={() => {
             router.push(`/collections/0x1f63ef5e95b3b2541f2b148bf95bfc34201b77cd`, undefined, { shallow: true });
@@ -216,11 +202,98 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
           </div>
 
         </Modal>
-      )}
+      )} */}
+
+      <div className='relative md:flex justify-center items-end col-span-full md:w-screen md:h-screen md:bg-gradient-to-b from-black via-black to-gray-600 '>
+
+      <div className='child md:absolute md:flex md:translate-y-[-30%]'>
+      <div className='relative col-span-full md:min-w-[600px] md:min-h-[600px] md:pl-10 md:mr-10'>
+      <TokenAvatar details={details} />
+      </div>
+
+      <div className='relative col-span-full md:pr-10 flex items-end'>
+      <Owner details={details} />
+      </div>
+      </div>
+
+      <div className='invisible overflow-hidden md:visible md:relative bg-gray-900 md:left-0 md:bottom-0 md:h-[15%] md:w-screen'>
+      <TokensGrid
+                tokenCount={tokenCount}
+                tokens={tokens}
+                viewRef={refTokens}
+                collectionImage={
+                  collection.data?.collection?.metadata?.imageUrl as string
+                }
+              />
+      </div>
+      
+      </div>
+
+
+      <div className='relative flex justify-center items-center h-[700px] col-span-full md:bg-gradient-to-b from-black via-black to-gray-600 bg-center '>
+      
+      <div className="absolute child w-full h-full col-span-full flex bg-[url('/background.png')] bg-center bg-cover"></div>
+
+      <div className='md:relative md:child md:flex md:justify-center '>
+
+      <div className='relative child col-span-full w-full text-xl font-press-start'>
+      New GameBros,<br></br>
+      Every Week,<br></br>
+      until we get to XBOX<br></br>
+      <div className='flex mt-4 text-lg font-press-start'>
+        360 Total - {stats?.data?.stats?.tokenCount} / 360
+      </div>
+      <div className="w-full md:w-3/4 mt-4 bg-gray-200 dark:bg-gray-700 border-2">
+      <div className="bg-white h-2.5 w-[52%]" ></div>
+      </div>
+
+      </div>
+      
+
+      <div className='relative child col-span-full w-[400px]'>
+      <img src="/gb_head.webp" alt="description of image"></img>
+
+      </div>
+
+
+      </div>
+      </div>
+
+
+
+      {/* <div className="relative flex justify-center w-screen h-screen col-span-full bg-gradient-to-b from-black via-black to-gray-800 bg-center">
+        <div className="absolute child left-0 w-full h-full col-span-full flex bg-[url('/background.png')] bg-center bg-cover"></div>
+          
+        <div className='absolute child flex translate-y-[-30%]'>
+      <div className='relative min-w-[600px] min-h-[600px] mr-10'>
+      <div className='flex justify-center mt-4 text-xl font-press-start'>
+        360 GameBros
+      </div>
+      <div className='flex justify-center mt-4 text-lg font-press-start'>
+        {stats?.data?.stats?.tokenCount} / 360
+      </div>
+      <div className="w-full mt-4 bg-gray-200 dark:bg-gray-700 border-2">
+      <div className="bg-white h-2.5 w-[52%]" ></div>
+</div>
+      </div>
+
+      <div className='relative col-span-full flex items-end md:w-[600px]'>
+      <img src="/gb_head.webp" alt="description of image"></img>
+
+      </div>
+      </div>
+
+
+      <div className='relative child mt-14 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96'>
+
+      </div>
+      </div> */}
+
+
         {/* <Hero collectionId={id} fallback={fallback} /> */}
         <div className="col-span-full grid grid-cols-4 gap-x-4 md:grid-cols-8 lg:grid-cols-12 3xl:grid-cols-16 4xl:grid-cols-21">
           {/* <Sidebar attributes={attributes} setTokensSize={tokens.setSize} /> */}
-          <div className="col-span-full mt-4 sm:col-end-[-1]">
+          <div className="col-span-full">
             <div className="mb-10 hidden items-center justify-between">
               <div className="flex items-center gap-6">
                 {!!stats?.data?.stats?.tokenCount &&
@@ -266,7 +339,7 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
             </div>
             <AttributesFlex className="mb-10 flex flex-wrap gap-3" />
             <ExploreFlex />
-            {router.query?.attribute_key ||
+            {/* {router.query?.attribute_key ||
             router.query?.attribute_key === '' ? (
               <ExploreTokens
                 attributes={collectionAttributes}
@@ -281,7 +354,7 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
                   collection.data?.collection?.metadata?.imageUrl as string
                 }
               />
-            )}
+            )} */}
           </div>
         </div>
       </>

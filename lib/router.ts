@@ -1,5 +1,17 @@
 import { NextRouter } from 'next/router'
 
+function lastToken(router: NextRouter, item: string, value: string) {
+  router.push(
+    {
+      query: { ...router.query, [`${item}`]: value },
+    },
+    undefined,
+    {
+      shallow: true,
+    }
+  )
+}
+
 function toggleOnItem(router: NextRouter, item: string, value: string) {
   router.push(
     {
@@ -65,4 +77,4 @@ function updateItem(router: NextRouter, item: string, value: string) {
   )
 }
 
-export { toggleOffItem, toggleOnItem, updateItem, toggleOnAttributeKey }
+export { toggleOffItem, toggleOnItem, updateItem, toggleOnAttributeKey, lastToken }

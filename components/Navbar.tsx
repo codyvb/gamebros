@@ -83,7 +83,7 @@ const Navbar: FC = () => {
   }, [filterableCollection])
 
   return (
-    <nav className="top-0 sticky bg-gradient-to-b from-black to-background-opacity-0 z-50 col-span-full flex justify-between py-6 gap-2 px-6 md:gap-3 md:pt-12 md:py-6 md:px-16 sm:py-6">
+    <nav className="visible md:hidden top-0 relative w-full bg-gradient-to-b from-black to-background-opacity-0 z-50 col-span-full  justify-between py-6 gap-2 px-6 md:gap-3 md:pt-12 md:py-6 md:px-16 sm:py-6">
       <div className="hidden md:flex w-1/3 justify-left">
       <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
         OpenSea
@@ -98,7 +98,9 @@ const Navbar: FC = () => {
       <div className='flex w-1/3 justify-center'>
       <NavbarLogo className="z-10" />
       </div>
+      <div className='hidden'>
       <HamburgerMenu externalLinks={externalLinks} />
+      </div>
       <div className="z-10 ml-auto hidden md:flex w-1/3 justify-end">
         {/* <ConnectWallet /> */}
         

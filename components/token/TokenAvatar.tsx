@@ -3,8 +3,6 @@ import { optimizeImage } from 'lib/optmizeImage'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 import { FC, useEffect, useState } from 'react'
-import LoadingCard from '../LoadingCard'
-
 
 type Props = {
   details: ReturnType<typeof useDetails>
@@ -63,7 +61,7 @@ const TokenMedia: FC<Props> = ({ details }) => {
   }, [])
 
   return (
-    <div className="col-span-full">
+    <div className="col-span-full bg-slate-900 min-h-[500px] md:min-h-[660px] md:min-w-[660px] md:rounded-2xl">
       <Script
         type="module"
         src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
@@ -75,13 +73,13 @@ const TokenMedia: FC<Props> = ({ details }) => {
       {tokenOpenSea?.extension === null ? (
         <img
           alt="GameBro"
-          className="rounded-2xl"
-          src={optimizeImage(token?.token?.image, 533)}
+          className="w-full md:rounded-2xl"
+          src={optimizeImage(token?.token?.image, 660)}
         />
       ) : (
         <Media
           tokenOpenSea={tokenOpenSea}
-          tokenImage={optimizeImage(token?.token?.image, 533)}
+          tokenImage={optimizeImage(token?.token?.image, 660)}
         />
       )}
     </div>

@@ -45,14 +45,9 @@ const TokensGrid: FC<Props> = ({
 
 
   return (
-    <Masonry
+    <div
+      className='flex'
       key="tokensGridMasonry"
-      breakpointCols={{
-        default: 12,
-
-      }}
-      className="masonry-grid"
-      columnClassName="masonry-grid_column"
     >
       {isLoadingInitialData
         ? Array(10)
@@ -68,7 +63,7 @@ const TokensGrid: FC<Props> = ({
               <li className='list-none'
                 key={`${token?.collection?.name}${idx}`}
               >
-                <a onClick={() => toggleOnItem(router, 'token', `${token?.tokenId}`)} className="group relative grid cursor-pointer self-start overflow-hidden border-2 border-[#000000] transition ease-in hover:border-[#6d6d6d] hover:ease-out">
+                <a onClick={() => toggleOnItem(router, 'token', `${token?.tokenId}`)} className="group relative grid cursor-pointer self-start overflow-hidden border-8 border-[#000000] transition ease-in hover:border-[#6d6d6d] hover:ease-out">
                   {token?.source && (
                     
                   <div className='absolute top-0 left-0 h-24 w-full bg-gradient-to-b from-black to-background-opacity-0 col-span-full'>
@@ -92,7 +87,7 @@ const TokensGrid: FC<Props> = ({
                     <img
                       src={optimizeImage(token?.image, 250)}
                       alt={`${token?.name}`}
-                      className="w-full grayscale"
+                      className="w-full"
                       width="250"
                       height="250"
                     />
@@ -116,12 +111,12 @@ const TokensGrid: FC<Props> = ({
                         src={optimizeImage(collectionImage, 250)}
                         alt={`${token?.collection?.name}`}
                         className="aspect-square w-full object-cover"
-                        width="150"
-                        height="150"
+                        width="250"
+                        height="250"
                       />
                     </div>
                   )}
-                  <div className='absolute bottom-0 left-0 h-24 w-full  col-span-full invisible group-hover:visible'>
+                  <div className='absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-black to-background-opacity-0 col-span-full invisible group-hover:visible'>
                   </div>
                   <div className='absolute text-xs invisible group-hover:visible bottom-5 left-3 h-2 w-8 font-press-start'>
                   <ENSName address={token?.owner}></ENSName>
@@ -161,14 +156,14 @@ const TokensGrid: FC<Props> = ({
         Array(10)
           .fill(null)
           .map((_, index) => {
-            // if (index === 0) {
-            //   return (
-            //     <LoadingCard viewRef={viewRef} key={`loading-card-${index}`} />
-            //   )
-            // }
-            // return <LoadingCard key={`loading-card-${index}`} />
+            if (index === 0) {
+              return (
+                <LoadingCard viewRef={viewRef} key={`loading-card-${index}`} />
+              )
+            }
+            return <LoadingCard key={`loading-card-${index}`} />
           })}
-    </Masonry>
+    </div>
   )
 }
 
