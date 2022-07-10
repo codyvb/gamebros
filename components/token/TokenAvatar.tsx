@@ -61,7 +61,7 @@ const TokenMedia: FC<Props> = ({ details }) => {
   }, [])
 
   return (
-    <div className="col-span-full bg-slate-900  min-h-[200px] md:min-h-[660px] md:min-w-[660px] md:rounded-2xl">
+    <div className="col-span-full bg-slate-900  min-h-[200px] md:min-h-[660px] md:min-w-[660px] md:rounded-2xl drop-shadow-2xl">
       <Script
         type="module"
         src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"

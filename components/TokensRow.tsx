@@ -46,11 +46,11 @@ const TokensGrid: FC<Props> = ({
 
   return (
     <div
-      className='flex'
+      className='flex justify-center p-10'
       key="tokensGridMasonry"
     >
       {isLoadingInitialData
-        ? Array(10)
+        ? Array(12)
             .fill(null)
             .map((_, index) => <LoadingCard key={`loading-card-${index}`} />)
         : mappedTokens?.map((token, idx) => {
@@ -153,7 +153,7 @@ const TokensGrid: FC<Props> = ({
             )
           })}
       {didReactEnd &&
-        Array(10)
+        Array(0)
           .fill(null)
           .map((_, index) => {
             if (index === 0) {

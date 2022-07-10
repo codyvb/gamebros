@@ -25,19 +25,6 @@ model-viewer {
   min-height: 500px;
 }
 
-.masonry-grid {
-  display: -webkit-box; /* Not needed if autoprefixing */
-  display: -ms-flexbox; /* Not needed if autoprefixing */
-  display: flex;
-  margin-left: 0px; /* gutter size offset */
-  width: auto;
-}
-
-.masonry-grid_column {
-  padding-left: 0px; /* gutter size */
-  background-clip: padding-box;
-}
-
 .clamp {
   display: -webkit-box;
   overflow: hidden;

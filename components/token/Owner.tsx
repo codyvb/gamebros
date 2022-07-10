@@ -34,7 +34,7 @@ const Owner: FC<Props> = ({ details }) => {
      <div className='hidden md:block md:mb-5'>
             <NavbarLogo className="z-10" />
       </div> 
-      <article className="col-span-full md:border border-gray-300 bg-white p-6 dark:border-neutral-600 dark:bg-black">
+      <article className="col-span-full md:border border-gray-300 bg-white p-6 dark:border-neutral-600 dark:bg-black drop-shadow-lg">
       <button onClick={() => lastToken(router, 'token', `${(Math.floor( Math.random( ) * 187) + 1)}` )}>
       <img
         src="/arrowwhite.svg"

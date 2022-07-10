@@ -234,24 +234,27 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
       
       <div className="absolute child w-full h-full col-span-full flex bg-[url('/background.png')] bg-center bg-cover"></div>
 
-      <div className='md:relative md:child md:flex md:justify-center '>
+      <div className='md:items-center md:relative md:child md:flex md:justify-center p-10 '>
 
-      <div className='relative child col-span-full w-full text-xl font-press-start'>
-      New GameBros,<br></br>
-      Every Week,<br></br>
-      until we get to XBOX<br></br>
+      <div className='relative child md:w-[40%] justify-center  col-span-full text-xl font-press-start'>
+      A speedrun of video game history in 360 characters
       <div className='flex mt-4 text-lg font-press-start'>
         360 Total - {stats?.data?.stats?.tokenCount} / 360
       </div>
       <div className="w-full md:w-3/4 mt-4 bg-gray-200 dark:bg-gray-700 border-2">
       <div className="bg-white h-2.5 w-[52%]" ></div>
       </div>
-
+      <div className='flex mt-4 text-lg font-press-start'>
+        New drops every week
+      </div>
+      <div className='flex mt-4 text-lg font-press-start'>
+        <span>Follow&nbsp;<a href="https://twitter.com/gamebrosgg" rel="noreferrer" target="_blank">@gamebrosgg</a></span>
+      </div>
       </div>
       
 
-      <div className='relative child col-span-full w-[400px]'>
-      <img src="/gb_head.webp" alt="description of image"></img>
+      <div className='relative flex child col-span-full justify-center '>
+       <img src="/gb_head.webp" alt="description of image" className='p-8 w-[300px] md:w-[400px]' ></img>
 
       </div>
 
