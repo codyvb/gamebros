@@ -45,15 +45,9 @@ const TokensGrid: FC<Props> = ({
 
 
   return (
-    <Masonry
-      key="tokensGridMasonry"
-      breakpointCols={{
-        default: 12,
-
-      }}
-      className="flex"
-      columnClassName="masonry-grid_column"
-    >
+    <div
+      className="flex flex-row"
+>
       {isLoadingInitialData
         ? Array(0)
             .fill(null)
@@ -68,7 +62,7 @@ const TokensGrid: FC<Props> = ({
               <li className='list-none'
                 key={`${token?.collection?.name}${idx}`}
               >
-                <a onClick={() => toggleOnItem(router, 'token', `${token?.tokenId}`)} className="group relative grid cursor-pointer self-start overflow-hidden border-2 border-[#000000] transition ease-in hover:border-[#6d6d6d] hover:ease-out">
+                <a onClick={() => toggleOnItem(router, 'token', `${token?.tokenId}`)} className="group w-[150px] relative grid cursor-pointer self-start overflow-hidden border-2 border-[#000000] transition ease-in hover:border-[#6d6d6d] hover:ease-out">
                   {token?.source && (
                     
                   <div className='absolute top-0 left-0 h-24 w-full bg-gradient-to-b from-black to-background-opacity-0 col-span-full'>
@@ -168,7 +162,7 @@ const TokensGrid: FC<Props> = ({
             // }
             // return <LoadingCard key={`loading-card-${index}`} />
           })}
-    </Masonry>
+    </div>
   )
 }
 

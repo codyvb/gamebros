@@ -218,7 +218,7 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
 
       <div className='invisible overflow-hidden md:visible md:relative bg-gray-900 md:left-0 md:bottom-0 md:h-[15%] md:w-screen'>
       <TokensGrid
-                tokenCount={tokenCount}
+                tokenCount={12}
                 tokens={tokens}
                 viewRef={refTokens}
                 collectionImage={
