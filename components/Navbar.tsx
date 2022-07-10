@@ -95,7 +95,7 @@ const Navbar: FC = () => {
         Twitter
       </button>
       </div>
-      <div className='flex w-1/3 justify-center'>
+      <div className='flex w-1/3 justify-left'>
       <NavbarLogo className="z-10" />
       </div>
       <div className='hidden'>
