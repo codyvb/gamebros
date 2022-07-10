@@ -10,6 +10,11 @@
   }
 }
 
+@font-face {
+  font-family: "Pixeloid";
+  src: url("../public/fonts/pixeloid/PixeloidSans.ttf");
+}
+
 input[type=range] {
   -webkit-appearance: none;
   @apply bg-primary-700 rounded-full h-3;

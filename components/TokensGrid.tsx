@@ -66,7 +66,7 @@ const TokensGrid: FC<Props> = ({
                   {token?.source && (
                     
                   <div className='absolute top-0 left-0 h-24 w-full bg-gradient-to-b from-black to-background-opacity-0 col-span-full'>
-                                      <div className='absolute top-4 left-4 h-8 w-8 font-press-start'>Available! 
+                                      <div className='absolute top-4 left-4 h-8 w-8 font-pixeloid'>Available! 
 
                     {/* <img
                       className='absolute float-right'
@@ -117,7 +117,7 @@ const TokensGrid: FC<Props> = ({
                   )}
                   <div className='absolute bottom-0 left-0 h-24 w-full  col-span-full invisible group-hover:visible'>
                   </div>
-                  <div className='absolute text-xs invisible group-hover:visible bottom-5 left-3 h-2 w-8 font-press-start'>
+                  <div className='absolute text-xs invisible group-hover:visible bottom-5 left-3 h-2 w-8 font-pixeloid'>
                   <ENSName address={token?.owner}></ENSName>
                   {/* <p
                     className="reservoir-subtitle mb-3 overflow-hidden truncate px-4 pt-4 dark:text-white lg:pt-3"

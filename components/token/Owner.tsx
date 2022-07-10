@@ -53,7 +53,7 @@ const Owner: FC<Props> = ({ details }) => {
 
 
       </button>
-        <div className=" mb-6 overflow-hidden dark:text-white font-press-start">
+        <div className=" mb-6 overflow-hidden dark:text-white font-pixeloid">
           {token?.token?.name || `#${token?.token?.tokenId}`}
         </div>
 
@@ -70,7 +70,7 @@ const Owner: FC<Props> = ({ details }) => {
           </div>
         )} */}
 
-        <div className="mb-2 dark:text-white font-press-start">
+        <div className="mb-2 dark:text-white font-pixeloid">
           Held by{' '}
         {owner && (
           <Link href={`/address/${owner}`}>
