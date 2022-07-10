@@ -216,7 +216,7 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
       </div>
       </div>
 
-      <div className='invisible overflow-hidden md:visible md:relative bg-gray-900 md:left-0 md:bottom-0 md:h-[15%] md:w-screen'>
+      <div className='invisible overflow-x-scroll md:visible md:relative bg-gray-900 md:left-0 md:bottom-0 md:h-[15%] md:w-screen'>
       <TokensGrid
                 tokenCount={12}
                 tokens={tokens}
