@@ -236,7 +236,7 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
 
       <div className='md:items-center md:relative md:child md:flex md:justify-center p-10 '>
 
-      <div className='relative child md:w-[40%] p-8 bg-slate-90 justify-center  col-span-full text-xl font-pixeloid'>
+      <div className='bg-slate-900 relative child md:w-[40%] p-8 justify-center  col-span-full text-xl font-pixeloid'>
       A speedrun of video game history in 360 characters
       <div className='flex mt-4 text-lg font-pixeloid'>
         360 Total - {stats?.data?.stats?.tokenCount} / 360
@@ -244,12 +244,11 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
       <div className="w-full md:w-3/4 mt-4 bg-gray-200 dark:bg-gray-700 border-2">
       <div className="bg-white h-2.5 w-[52%]" ></div>
       </div>
-      <div className='flex mt-4 text-lg font-pixeloid'>
-        New drops every week
-      </div>
-      <div className='flex mt-4 text-lg font-pixeloid'>
-        <span>Follow&nbsp;<a href="https://twitter.com/gamebrosgg" rel="noreferrer" target="_blank">@gamebrosgg</a></span>
-      </div>
+      
+      <a href="https://twitter.com/gamebrosgg" rel="noreferrer" target="_blank">
+      <div className='bg-white text-black p-3 flex mt-4 text-lg font-pixeloid justify-center hover:bg-slate-700 hover:text-white'>
+       New Drops Every Week
+      </div></a>
       </div>
       
 
