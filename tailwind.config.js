@@ -121,7 +121,7 @@ module.exports = {
         '4xl': '2560px',
       },
       fontFamily: {
-        pixeloid: ['"pixeloid"', '"sans-serif"'],
+        pixeloid: ['"pixeloid"', 'sans-serif'],
         'press-start': ['"Press Start 2P"'],
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
         headings: [`"${FONT_FAMILY}"`, ...defaultTheme.fontFamily.sans],
