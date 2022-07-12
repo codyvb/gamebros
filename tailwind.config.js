@@ -122,7 +122,6 @@ module.exports = {
       },
       fontFamily: {
         pixeloid: ['"pixeloid"', 'sans-serif'],
-        'press-start': ['"Press Start 2P"'],
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
         headings: [`"${FONT_FAMILY}"`, ...defaultTheme.fontFamily.sans],
       },
