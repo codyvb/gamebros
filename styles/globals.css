@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: "Pixeloid";
-  src: url("/public/fonts/pixeloid/PixeloidSans.ttf");
+  src: url("/fonts/pixeloid/PixeloidSans.ttf");
 }
 
 @layer components {
