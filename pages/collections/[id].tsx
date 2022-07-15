@@ -60,15 +60,18 @@ const COMMUNITY = process.env.NEXT_PUBLIC_COMMUNITY
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-const Home: NextPage<Props> = ({ fallback, id }) => {
+const Home: NextPage<Props> = (props) => {
+  const { id } = props;
+
   const router = useRouter()
   const [refreshLoading, setRefreshLoading] = useState(false)
 
-  const collection = useCollection(fallback.collection, id)
+  const collection = props.collection?.collection
+  // const tokens = props.tokens?.tokens;
 
   const stats = useCollectionStats(router, id)
 
-  const { tokens, ref: refTokens } = useTokens(id, [fallback.tokens], router)
+  const { tokens, ref: refTokens } = useTokens(id, [props.tokens], router)
 
   const { collectionAttributes, ref: refCollectionAttributes } =
     useCollectionAttributes(router, id)
@@ -152,19 +155,19 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
   const title = metaTitle ? (
     <title>{metaTitle}</title>
   ) : (
-    <title>{collection.data?.collection?.name}</title>
+    <title>{collection?.name}</title>
   )
   const description = metaDescription ? (
     <meta name="description" content={metaDescription} />
   ) : (
     <meta
       name="description"
-      content={collection.data?.collection?.metadata?.description as string}
+      content={collection?.metadata?.description as string}
     />
   )
 
   const bannerImage = (envBannerImage ||
-    collection?.data?.collection?.metadata?.bannerImageUrl) as string
+    collection?.metadata?.bannerImageUrl) as string
 
   const image = metaImage ? (
     <>
@@ -208,11 +211,11 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
 
       <div className='child md:absolute md:flex md:translate-y-[-30%]'>
       <div className='relative col-span-full md:min-w-[600px] md:min-h-[600px] md:pl-10 md:mr-10'>
-      <TokenAvatar details={details} />
+        <TokenAvatar details={details} />
       </div>
 
       <div className='relative col-span-full md:pr-10 flex items-end'>
-      <Owner details={details} />
+        <Owner tokenId={router.query?.token?.toString()} tokenCount={collection?.tokenCount} details={details} />
       </div>
       </div>
 
@@ -222,7 +225,7 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
                 tokens={tokens}
                 viewRef={refTokens}
                 collectionImage={
-                  collection.data?.collection?.metadata?.imageUrl as string
+                  collection?.metadata?.imageUrl as string
                 }
               />
       </div>
@@ -353,7 +356,7 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
                 tokens={tokens}
                 viewRef={refTokens}
                 collectionImage={
-                  collection.data?.collection?.metadata?.imageUrl as string
+                  collection?.data?.collection?.metadata?.imageUrl as string
                 }
               />
             )} */}
@@ -421,10 +424,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<{
   collectionId?: string
-  fallback: {
-    collection: paths['/collection/v1']['get']['responses']['200']['schema']
-    tokens: paths['/tokens/v4']['get']['responses']['200']['schema']
-  }
+  collection: paths['/collection/v1']['get']['responses']['200']['schema']
+  tokens: paths['/tokens/v4']['get']['responses']['200']['schema']
   id: string | undefined
 }> = async ({ params }) => {
   const options: RequestInit | undefined = {}
@@ -449,7 +450,7 @@ export const getStaticProps: GetStaticProps<{
   const collectionRes = await fetch(collectionUrl.href, options)
 
   const collection =
-    (await collectionRes.json()) as Props['fallback']['collection']
+    (await collectionRes.json()) as Props['collection']
 
   // TOKENS
   const tokensUrl = new URL('/tokens/v4', RESERVOIR_API_BASE)
@@ -464,10 +465,10 @@ export const getStaticProps: GetStaticProps<{
 
   const tokensRes = await fetch(tokensUrl.href, options)
 
-  const tokens = (await tokensRes.json()) as Props['fallback']['tokens']
+  const tokens = (await tokensRes.json()) as Props['tokens']
 
   return {
-    props: { fallback: { collection, tokens }, id },
+    props: { collection, tokens, id },
     revalidate: 20,
   }
 }

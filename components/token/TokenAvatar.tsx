@@ -57,11 +57,17 @@ const TokenMedia: FC<Props> = ({ details }) => {
       setTokenOpenSea(result)
     }
 
-    getOpenSeaData(urlOpenSea)
+    if (contract && tokenId) {
+      getOpenSeaData(urlOpenSea)
+    }
+
   }, [])
 
   return (
-    <div className="col-span-full bg-slate-900  min-h-[200px] md:min-h-[660px] md:min-w-[660px] md:rounded-2xl drop-shadow-2xl">
+    // <div className="col-span-full bg-slate-900  min-h-[200px] md:min-h-[660px] md:min-w-[660px] md:rounded-2xl drop-shadow-2xl">
+    <div className="col-span-full bg-slate-900 w-full md:rounded-2xl drop-shadow-2xl image-container" style={{
+
+    }}> 
       <Script
         type="module"
         src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
@@ -73,8 +79,8 @@ const TokenMedia: FC<Props> = ({ details }) => {
       {tokenOpenSea?.extension === null ? (
         <img
           alt="GameBro"
-          className="w-full md:rounded-2xl"
-          src={optimizeImage(token?.token?.image, 660)}
+          className="md:rounded-2xl"
+          src={optimizeImage(token?.token?.image , 660) || '/transparentplaceholder.png'}
         />
       ) : (
         <Media
@@ -82,6 +88,8 @@ const TokenMedia: FC<Props> = ({ details }) => {
           tokenImage={optimizeImage(token?.token?.image, 660)}
         />
       )}
+      <style jsx>{`
+        `}</style>
     </div>
   )
 }

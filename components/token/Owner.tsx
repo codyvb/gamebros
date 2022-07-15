@@ -14,13 +14,16 @@ import React, { useState, useEffect } from 'react';
 
 type Props = {
   details: ReturnType<typeof useDetails>
+  tokenId?: string;
+  tokenCount?: string;
 }
 
 
-const Owner: FC<Props> = ({ details }) => {
+const Owner: FC<Props> = ({ details, tokenId, tokenCount }) => {
   const token = details.data?.tokens?.[0]
   const router = useRouter()
-
+  const nextToken = Number(tokenId) + 1 > Number(tokenCount) ? Number(tokenCount) : Number(tokenId) + 1;
+  const prevToken = Number(tokenId) - 1 < 1 ? 1 : Number(tokenId) - 1;
 
   const owner =
     token?.token?.kind === 'erc1155' && token?.market?.floorAsk?.maker
@@ -35,7 +38,8 @@ const Owner: FC<Props> = ({ details }) => {
             <NavbarLogo className="z-10" />
       </div> 
       <article className="col-span-full md:border border-gray-300 bg-white p-6 dark:border-neutral-600 dark:bg-black drop-shadow-lg">
-      <button onClick={() => lastToken(router, 'token', `${(Math.floor( Math.random( ) * 187) + 1)}` )}>
+      <button onClick={() => lastToken(router, 'token', prevToken.toString())}>
+      {/* <button onClick={() => lastToken(router, 'token', `${(Math.floor( Math.random( ) * 187) + 1)}` )}> */}
       <img
         src="/arrowwhite.svg"
         alt="arrow"
@@ -43,18 +47,18 @@ const Owner: FC<Props> = ({ details }) => {
         height="25"
         className='inline-block mb-5'
       />
+      </button>
+      <button onClick={() => lastToken(router, 'token', nextToken.toString())}>
         <img
-        src="/arrowwhiteright.svg"
-        alt="arrow"
-        width="25"
-        height="25"
-        className='inline-block ml-5 mb-5'
-      />
-
-
+          src="/arrowwhite.svg"
+          alt="arrow"
+          width="25"
+          height="25"
+          className='inline-block ml-5 mb-5 rotate-180'
+        />
       </button>
         <div className=" mb-6 overflow-hidden dark:text-white text-2xl font-pixeloid">
-          {token?.token?.name || `#${token?.token?.tokenId}`}
+          GameBro {token?.token?.tokenId ? `#${token?.token?.tokenId}` : ''}
         </div>
 
         {/* {token?.token?.kind === 'erc1155' && (
@@ -75,7 +79,7 @@ const Owner: FC<Props> = ({ details }) => {
         {owner && (
           <Link href={`/address/${owner}`}>
             <a className="inline-block">
-            <ENSName address={token?.token?.owner}></ENSName>
+              <ENSName address={token?.token?.owner}></ENSName>
 
             </a>
           </Link>

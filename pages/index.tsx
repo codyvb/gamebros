@@ -42,7 +42,6 @@ const metadata = {
 const Home: NextPage<Props> = ({ fallback }) => {
   const router = useRouter()
   const { data: accountData } = useAccount()
-  const collections = useCollections(fallback.collections)
   useDataDog(accountData)
 
   const title = META_TITLE && metadata.title(META_TITLE)
@@ -51,7 +50,8 @@ const Home: NextPage<Props> = ({ fallback }) => {
 
   useEffect(() => {
     if (COLLECTION) {
-      router.push(`/collections/${COLLECTION}?token=188`)
+      console.log('fallback', fallback)
+      router.push(`/collections/${COLLECTION}?token=${fallback?.collection?.collection?.tokenCount}`)
     }
   }, [COLLECTION])
 
@@ -87,7 +87,7 @@ export default Home
 
 export const getStaticProps: GetStaticProps<{
   fallback: {
-    collections: paths['/collections/v2']['get']['responses']['200']['schema']
+    collection: paths['/collection/v2']['get']['responses']['200']['schema']
   }
 }> = async () => {
   const options: RequestInit | undefined = {}
@@ -98,23 +98,21 @@ export const getStaticProps: GetStaticProps<{
     }
   }
 
-  const url = new URL('/collections/v2', RESERVOIR_API_BASE)
+  const url = new URL('/collection/v2', RESERVOIR_API_BASE)
 
-  let query: paths['/collections/v2']['get']['parameters']['query'] = {
-    limit: 20,
-    offset: 0,
-    sortBy: '7DayVolume',
+  let query: paths['/collection/v2']['get']['parameters']['query'] = {
+    id: COLLECTION,
   }
 
   const href = setParams(url, query)
   const res = await fetch(href, options)
 
-  const collections = (await res.json()) as Props['fallback']['collections']
+  const collection = (await res.json()) as Props['fallback']['collection']
 
   return {
     props: {
       fallback: {
-        collections,
+        collection,
       },
     },
   }
