@@ -240,7 +240,7 @@ const Home: NextPage<Props> = (props) => {
       <div className='md:items-center md:relative md:child md:flex md:justify-center p-10 '>
 
       <div className='bg-slate-900 relative child md:w-[40%] p-8 justify-center  col-span-full text-xl font-pixeloid'>
-      A speedrun of video game history in 360 characters
+      A speedrun of video game history in 360 characters.
       <div className='flex mt-4 text-lg font-pixeloid'>
         360 Total - {stats?.data?.stats?.tokenCount} / 360
       </div>
