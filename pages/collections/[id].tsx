@@ -250,7 +250,7 @@ const Home: NextPage<Props> = (props) => {
       
       <a href="https://twitter.com/gamebrosgg" rel="noreferrer" target="_blank">
       <div className='bg-white text-black p-3 flex mt-4 text-lg font-pixeloid justify-center hover:bg-slate-700 hover:text-white'>
-       New Drops Every Week
+       New Drops Every Week!
       </div></a>
       </div>
       
