@@ -207,10 +207,10 @@ const Home: NextPage<Props> = (props) => {
         </Modal>
       )} */}
 
-      <div className='relative md:flex justify-center items-end col-span-full md:w-screen md:h-screen md:bg-gradient-to-b from-black via-black to-gray-600 '>
+      <div className='relative md:flex col-span-full md:w-screen md:h-screen md:bg-gradient-to-b from-black via-black to-gray-600 '>
 
-      <div className='child md:absolute md:flex md:translate-y-[-30%]'>
-      <div className='relative col-span-full md:min-w-[600px] md:min-h-[600px] md:pl-10 md:mr-10'>
+      <div className=' md:absolute md:w-screen md:h-screen md:flex md:justify-center md:items-center'>
+      <div className='relative col-span-full md:w-2/5 md:pl-10 md:mr-10'>
         <TokenAvatar details={details} />
       </div>
 
@@ -219,7 +219,7 @@ const Home: NextPage<Props> = (props) => {
       </div>
       </div>
 
-      <div className='invisible overflow-x-scroll md:visible md:relative bg-gray-900 md:left-0 md:bottom-0 md:h-[15%] md:w-screen'>
+      <div className='hidden md:overflow-hidden md:absolute md:flex md:visible bg-gray-900 md:left-0 md:bottom-0 md:w-screen'>
       <TokensGrid
                 tokenCount={12}
                 tokens={tokens}

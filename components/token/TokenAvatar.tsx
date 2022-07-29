@@ -65,7 +65,7 @@ const TokenMedia: FC<Props> = ({ details }) => {
 
   return (
     // <div className="col-span-full bg-slate-900  min-h-[200px] md:min-h-[660px] md:min-w-[660px] md:rounded-2xl drop-shadow-2xl">
-    <div className="col-span-full bg-slate-900 w-full md:rounded-2xl drop-shadow-2xl image-container" style={{
+    <div className="col-span-ful w-full md:rounded-2xl drop-shadow-2xl image-container" style={{
 
     }}> 
       <Script

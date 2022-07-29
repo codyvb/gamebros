@@ -83,18 +83,18 @@ const Navbar: FC = () => {
   }, [filterableCollection])
 
   return (
-    <nav className="visible md:hidden top-0 relative w-full bg-gradient-to-b from-black to-background-opacity-0 z-50 col-span-full  justify-between py-6 gap-2 px-6 md:gap-3 md:pt-12 md:py-6 md:px-16 sm:py-6">
-      <div className="hidden md:flex w-1/3 justify-left">
-      <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
+    <nav className="visible top-0 md:absolute w-full bg-gradient-to-b from-black to-background-opacity-0 z-50 col-span-full  justify-between py-6 gap-2 px-6 md:gap-3 md:pt-12 md:py-6 md:px-16 sm:py-6">
+      {/* <div className="hidden md:flex w-1/3 justify-left">
+      <button className="font-pixeloid text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
         OpenSea
       </button>
-      <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
+      <button className="font-pixeloid text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
         Discord
       </button>
-      <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
+      <button className="font-pixeloid text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
         Twitter
       </button>
-      </div>
+      </div> */}
       <div className='flex w-1/3 justify-left'>
       <NavbarLogo className="z-10" />
       </div>
@@ -104,13 +104,13 @@ const Navbar: FC = () => {
       <div className="z-10 ml-auto hidden md:flex w-1/3 justify-end">
         {/* <ConnectWallet /> */}
         
-
-      <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
+{/* 
+      <button className="font-pixeloid text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
         Leaderboard
       </button>
-      <button className="font-press-start text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
+      <button className="font-pixeloid text-xs bg-transparent mr-2 hover:bg-slate-500 text-slate-50 font-semibold hover:text-white py-2 px-4 border border-slate-800 hover:border-transparent rounded">
         Drops
-      </button>
+      </button> */}
       </div>
     </nav>
   )
